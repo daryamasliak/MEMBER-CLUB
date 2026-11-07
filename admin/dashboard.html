@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard | Membership Club</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <button
+          class="sidebar-close"
+          id="sidebar-close"
+          type="button"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <a class="admin-brand" href="dashboard.html">
+          <span class="brand-mark">m</span>
+          <span>
+            <strong>Member Club</strong>
+            <small>ADMINISTRATION</small>
+          </span>
+        </a>
+
+        <nav class="admin-nav" aria-label="Admin navigation">
+          <p class="nav-label">WORKSPACE</p>
+          <a class="nav-link active" href="dashboard.html">
+            <span class="nav-icon">◫</span>
+            Dashboard
+          </a>
+          <a class="nav-link" href="applications.html">
+            <span class="nav-icon">▤</span>
+            Applications
+          </a>
+
+          <p class="nav-label">MANAGEMENT</p>
+          <a class="nav-link" href="members.html" data-admin-only>
+            <span class="nav-icon">♙</span>
+            Members
+          </a>
+          <a class="nav-link" href="all-events.html">
+            <span class="nav-icon">▦</span>
+            Events
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="sidebar-status"></span>
+          Admin workspace
+          <button id="logout-button" class="logout-button" type="button">
+            Log out
+          </button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <button
+            class="menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="admin-sidebar"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <span class="topbar-label">Administration / Dashboard</span>
+          <span class="topbar-indicator">Private workspace</span>
+        </header>
+
+        <section class="admin-content">
+          <div class="page-heading">
+            <p class="eyebrow">OVERVIEW</p>
+            <h1>Dashboard</h1>
+            <p>Welcome to your membership club workspace.</p>
+          </div>
+
+          <section class="dashboard-welcome">
+            <div>
+              <p class="eyebrow">MEMBERSHIP CLUB</p>
+              <h2>Build meaningful connections.</h2>
+              <p>
+                Manage applications, review candidates and keep your community
+                organised in one place.
+              </p>
+              <a class="button button--primary" href="applications.html">
+                Review applications
+              </a>
+            </div>
+            <div class="welcome-decoration" aria-hidden="true">C.</div>
+          </section>
+
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR WORKSPACE</p>
+              <h2>Management</h2>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <a class="dashboard-card" href="applications.html">
+              <span class="dashboard-card-icon">▤</span>
+              <span class="dashboard-card-title">Applications</span>
+              <span class="dashboard-card-description">
+                Review membership and event requests.
+              </span>
+              <span class="dashboard-card-link">Open applications →</span>
+            </a>
+
+            <a class="dashboard-card" href="members.html" data-admin-only>
+              <span class="dashboard-card-icon">♙</span>
+              <span class="dashboard-card-title">Members</span>
+              <span class="dashboard-card-description">
+                Manage the club member directory.
+              </span>
+              <span class="dashboard-card-link">Open members →</span>
+            </a>
+
+            <a class="dashboard-card" href="events.html">
+              <span class="dashboard-card-icon">▦</span>
+              <span class="dashboard-card-title">Events</span>
+              <span class="dashboard-card-description">
+                Organise events and review event activity.
+              </span>
+              <span class="dashboard-card-link">Open events →</span>
+            </a>
+          </div>
+
+          <div class="dashboard-note">
+            <span class="dashboard-note-mark">i</span>
+            <div>
+              <strong>Getting started</strong>
+              <p>
+                Open Applications to view requests stored in Firebase. The
+                dashboard cards navigate to the corresponding pages.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../js/pages/dashboard.js"></script>
+    <script type="module" src="../js/admin.js"></script>
+  </body>
+</html>

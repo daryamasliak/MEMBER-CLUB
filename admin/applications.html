@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Applications | Membership Club</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <button
+          class="sidebar-close"
+          id="sidebar-close"
+          type="button"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <a class="admin-brand" href="dashboard.html">
+          <span class="brand-mark">m</span>
+          <span>
+            <strong>Member Club</strong>
+            <small>ADMINISTRATION</small>
+          </span>
+        </a>
+
+        <nav class="admin-nav" aria-label="Admin navigation">
+          <p class="nav-label">WORKSPACE</p>
+          <a class="nav-link" href="dashboard.html">
+            <span class="nav-icon">◫</span>
+            Dashboard
+          </a>
+          <a class="nav-link active" href="applications.html">
+            <span class="nav-icon">▤</span>
+            Applications
+          </a>
+
+          <p class="nav-label">MANAGEMENT</p>
+          <a class="nav-link" href="members.html" data-admin-only>
+            <span class="nav-icon">♙</span>
+            Members
+          </a>
+          <a class="nav-link" href="all-events.html">
+            <span class="nav-icon">▦</span>
+            Events
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="sidebar-status"></span>
+          Admin workspace
+          <button id="logout-button" class="logout-button" type="button">
+            Log out
+          </button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <button
+            class="menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="admin-sidebar"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <span class="topbar-label">Administration / Applications</span>
+          <span class="topbar-indicator">Private workspace</span>
+        </header>
+
+        <section class="admin-content">
+          <div class="page-heading">
+            <p class="eyebrow">MEMBERSHIP MANAGEMENT</p>
+            <h1>Applications</h1>
+            <p>Review applications and manage their status.</p>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span class="stat-label">Total applications</span>
+              <strong id="stat-total">0</strong>
+              <span class="stat-caption">All requests</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">New</span>
+              <strong id="stat-new">0</strong>
+              <span class="stat-caption">Awaiting review</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Reviewing</span>
+              <strong id="stat-reviewing">0</strong>
+              <span class="stat-caption">Under consideration</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Waitlist</span>
+              <strong id="stat-waitlist">0</strong>
+              <span class="stat-caption">Waiting for a place</span>
+            </article>
+          </div>
+
+          <section class="applications-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">INBOX</p>
+                <h2>All applications</h2>
+              </div>
+              <span class="live-indicator"> <span></span> Live data </span>
+            </div>
+
+            <div class="applications-toolbar">
+              <label class="search-field">
+                <span class="visually-hidden">Search applications</span>
+                <span aria-hidden="true">⌕</span>
+                <input
+                  id="application-search"
+                  type="search"
+                  placeholder="Search name, email or message..."
+                  aria-label="Search applications"
+                />
+              </label>
+
+              <label class="filter-field">
+                <span class="visually-hidden">Filter by status</span>
+                <select id="status-filter" aria-label="Filter by status">
+                  <option value="all">All statuses</option>
+                  <option value="new">New</option>
+                  <option value="reviewing">Reviewing</option>
+                  <option value="approved">Approved</option>
+                  <option value="waitlist">Waitlist</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </label>
+
+              <label class="filter-field">
+                <span class="visually-hidden">Filter by type</span>
+                <select id="type-filter" aria-label="Filter by type">
+                  <option value="all">All types</option>
+                  <option value="membership">Membership</option>
+                  <option value="event">Event</option>
+                </select>
+              </label>
+
+              <label class="filter-field">
+                <span class="visually-hidden">Sort by date</span>
+                <select id="date-sort" aria-label="Sort by date">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                </select>
+              </label>
+
+              <button
+                id="clear-filters"
+                class="button button--secondary"
+                type="button"
+              >
+                Clear filters
+              </button>
+            </div>
+
+            <div id="applications-table-container" class="table-container">
+              <table class="applications-table">
+                <thead>
+                  <tr>
+                    <th>Applicant</th>
+                    <th>Type</th>
+                    <th>Submitted</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="applications-table-body"></tbody>
+              </table>
+            </div>
+
+            <div id="applications-empty" class="empty-state" hidden>
+              <span class="empty-state-icon">▤</span>
+              <h2>No applications found</h2>
+              <p>
+                There are no applications to display, or no results match your
+                filters.
+              </p>
+              <button
+                id="empty-clear-filters"
+                class="button button--secondary"
+                type="button"
+              >
+                Clear filters
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="application-dialog" class="application-dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">APPLICATION DETAILS</p>
+
+          <div class="dialog-title-row">
+            <h2>Review application</h2>
+
+            <button
+              id="toggle-application-history"
+              class="history-toggle"
+              type="button"
+              aria-label="Show application history"
+              aria-expanded="false"
+              title="Show status gistory"
+            >
+              <span aria-hidden="true">i</span>
+            </button>
+          </div>
+        </div>
+
+        <button
+          id="close-application-dialog"
+          class="dialog-close"
+          type="button"
+          aria-label="Close application details"
+        >
+          ×
+        </button>
+      </div>
+
+      <section
+        id="application-history"
+        class="application-history"
+        aria-label="Application history"
+        hidden
+      >
+        <div class="history-heading">
+          <h3>Status history</h3>
+          <span>STATUS CHANGES</span>
+        </div>
+
+        <div id="application-history-list" class="history-list"></div>
+      </section>
+
+      <div id="application-details" class="application-details"></div>
+
+      <div class="dialog-actions">
+        <label for="application-status">Application status</label>
+        <select id="application-status">
+          <option value="new">New</option>
+          <option value="reviewing">Reviewing</option>
+          <option value="approved">Approved</option>
+          <option value="waitlist">Waitlist</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <button
+          id="save-application-status"
+          class="button button--primary"
+          type="button"
+        >
+          Save changes
+        </button>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/pages/applications.js"></script>
+  </body>
+</html>

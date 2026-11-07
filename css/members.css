@@ -1,0 +1,108 @@
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.status-badge--admin {
+  background: #e9e4f7;
+  color: #5a4a9c;
+}
+
+.status-badge--manager {
+  background: #e3f0f7;
+  color: #2f6a8a;
+}
+
+.status-badge--member {
+  background: #eaf0e7;
+  color: #34734a;
+}
+
+.status-badge--active {
+  background: #e2f3e5;
+  color: #34734a;
+}
+
+.status-badge--inactive {
+  background: #eceeea;
+  color: #6f7b71;
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.button--danger {
+  border-color: #f0d4d1;
+  background: white;
+  color: #a14c46;
+}
+
+.button--danger:hover {
+  background: #f8e6e4;
+}
+
+.button--danger-solid {
+  background: #a14c46;
+  color: white;
+}
+
+.button--danger-solid:hover {
+  background: #84382f;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #5c695f;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible {
+  border-color: var(--green-700);
+}
+
+.form-field input[aria-invalid="true"] {
+  border-color: #c1564e;
+}
+
+.form-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.dialog-actions--end {
+  justify-content: flex-end;
+}
+
+.delete-message {
+  margin: 20px 0 0;
+  color: #354439;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}

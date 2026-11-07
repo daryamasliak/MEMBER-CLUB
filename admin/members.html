@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Members | Membership Club</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/members.css" />
+  </head>
+
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <button
+          class="sidebar-close"
+          id="sidebar-close"
+          type="button"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <a class="admin-brand" href="dashboard.html">
+          <span class="brand-mark">m</span>
+          <span>
+            <strong>Member Club</strong>
+            <small>ADMINISTRATION</small>
+          </span>
+        </a>
+
+        <nav class="admin-nav" aria-label="Admin navigation">
+          <p class="nav-label">WORKSPACE</p>
+          <a class="nav-link" href="dashboard.html">
+            <span class="nav-icon">◫</span>
+            Dashboard
+          </a>
+          <a class="nav-link" href="applications.html">
+            <span class="nav-icon">▤</span>
+            Applications
+          </a>
+
+          <p class="nav-label">MANAGEMENT</p>
+          <a class="nav-link active" href="members.html">
+            <span class="nav-icon">♙</span>
+            Members
+          </a>
+          <a class="nav-link" href="all-events.html">
+            <span class="nav-icon">▦</span>
+            Events
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="sidebar-status"></span>
+          Admin workspace
+          <button id="logout-button" class="logout-button" type="button">
+            Log out
+          </button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <button
+            class="menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="admin-sidebar"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <span class="topbar-label">Administration / Members</span>
+          <span class="topbar-indicator">Private workspace</span>
+        </header>
+
+        <section class="admin-content">
+          <div class="page-heading">
+            <p class="eyebrow">PEOPLE</p>
+            <h1>Members</h1>
+            <p>Manage the club member directory.</p>
+          </div>
+
+          <section class="stats-grid" aria-label="Statistics">
+            <article class="stat-card">
+              <span class="stat-label">Total people</span>
+              <strong id="stat-total">0</strong>
+              <span class="stat-caption">in the database</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Members</span>
+              <strong id="stat-members">0</strong>
+              <span class="stat-caption">club members</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Staff</span>
+              <strong id="stat-staff">0</strong>
+              <span class="stat-caption">admins and managers</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Inactive</span>
+              <strong id="stat-inactive">0</strong>
+              <span class="stat-caption">disabled records</span>
+            </article>
+          </section>
+
+          <section class="applications-panel">
+            <div class="panel-heading">
+              <h2>All people</h2>
+              <div class="panel-actions">
+                <span class="live-indicator"><span></span>Live</span>
+                <button
+                  class="button button--primary"
+                  id="add-member-button"
+                  type="button"
+                >
+                  + Add member
+                </button>
+              </div>
+            </div>
+
+            <div class="applications-toolbar">
+              <label class="search-field">
+                <span aria-hidden="true">⌕</span>
+                <span class="visually-hidden">Search people</span>
+                <input
+                  id="member-search"
+                  type="search"
+                  placeholder="Search by name, email or phone"
+                />
+              </label>
+
+              <label class="filter-field">
+                <span class="visually-hidden">Filter by role</span>
+                <select id="role-filter">
+                  <option value="all">All roles</option>
+                  <option value="member">Member</option>
+                  <option value="manager">Manager</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </label>
+
+              <label class="filter-field">
+                <span class="visually-hidden">Filter by status</span>
+                <select id="status-filter">
+                  <option value="all">All statuses</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </label>
+
+              <button
+                class="button button--secondary"
+                id="clear-filters"
+                type="button"
+              >
+                Clear filters
+              </button>
+            </div>
+
+            <div class="table-container" id="members-table-container">
+              <table class="applications-table">
+                <thead>
+                  <tr>
+                    <th>Person</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="members-table-body"></tbody>
+              </table>
+            </div>
+
+            <div class="empty-state" id="members-empty" hidden>
+              <div class="empty-state-icon" aria-hidden="true">☺</div>
+              <h2>No people found</h2>
+              <p>Nobody matches these filters, or nobody has been added yet.</p>
+              <button
+                class="button button--secondary"
+                id="empty-clear-filters"
+                type="button"
+              >
+                Clear filters
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="application-dialog" id="member-dialog">
+      <div class="dialog-header">
+        <h2 id="member-dialog-title">Add member</h2>
+        <button
+          class="dialog-close"
+          id="close-member-dialog"
+          type="button"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+
+      <form id="member-form" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="member-name">Full name</label>
+            <input
+              id="member-name"
+              type="text"
+              maxlength="80"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="member-email">Email</label>
+            <input
+              id="member-email"
+              type="email"
+              maxlength="120"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="member-phone">Phone (optional)</label>
+            <input
+              id="member-phone"
+              type="tel"
+              maxlength="30"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="member-status">Status</label>
+            <select id="member-status">
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+
+          <p class="form-hint">
+            Please use only data you are allowed to store. Do not enter health
+            information.
+          </p>
+        </div>
+
+        <div class="dialog-actions dialog-actions--end">
+          <button
+            class="button button--secondary"
+            id="cancel-member"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="button button--primary" id="save-member" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="application-dialog" id="delete-dialog">
+      <div class="dialog-header">
+        <h2>Delete member</h2>
+      </div>
+      <p id="delete-message" class="delete-message"></p>
+      <div class="dialog-actions dialog-actions--end">
+        <button
+          class="button button--secondary"
+          id="cancel-delete"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="button button--danger-solid"
+          id="confirm-delete"
+          type="button"
+        >
+          Delete
+        </button>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="../js/pages/members.js"></script>
+    <script type="module" src="../js/admin.js"></script>
+  </body>
+</html>

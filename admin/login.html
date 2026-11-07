@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123c32" />
+    <title>Admin sign in | Members Club</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="brand-panel" aria-label="Members Club">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">m</span>
+          <span class="brand-name">MEMBERS<br />CLUB</span>
+        </div>
+
+        <div class="brand-message">
+          <p class="eyebrow">A space to grow together</p>
+          <h1>
+            Thoughtful<br />people.<br /><em>Meaningful</em><br />connections.
+          </h1>
+          <p class="brand-description">
+            A quieter kind of community, built around curiosity, conversation
+            and shared experiences.
+          </p>
+        </div>
+
+        <p class="brand-footer">PRIVATE COMMUNITY · ADMIN SPACE</p>
+      </section>
+
+      <section class="form-panel" aria-labelledby="login-title">
+        <div class="form-topline">
+          <span class="topline-dot" aria-hidden="true"></span>
+          <span>ADMINISTRATION</span>
+        </div>
+
+        <div class="form-content">
+          <p class="eyebrow form-eyebrow">Welcome back</p>
+          <h2 id="login-title">Sign in to your<br />workspace.</h2>
+          <p class="form-intro">
+            Manage applications, members and events from one place.
+          </p>
+
+          <form id="login-form" method="post" autocomplete="on" novalidate>
+            <div class="field-group">
+              <label for="email">Email address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="admin@club.test"
+                autocomplete="username"
+                inputmode="email"
+                required
+              />
+            </div>
+
+            <div class="field-group">
+              <div class="label-row">
+                <label for="password">Password</label>
+                <span class="field-note">Admin access only</span>
+              </div>
+
+              <div class="password-field">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  class="password-toggle"
+                  id="toggle-password"
+                  type="button"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                >
+                  Show
+                </button>
+              </div>
+            </div>
+
+            <p
+              id="form-error"
+              class="form-message error-message"
+              role="alert"
+              hidden
+            ></p>
+            <p
+              id="form-success"
+              class="form-message success-message"
+              role="status"
+              hidden
+            ></p>
+
+            <button class="sign-in-button" type="submit">
+              <span>Sign in</span>
+              <span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+          </form>
+        </div>
+
+        <footer class="form-footer">
+          <span>MEMBERS CLUB</span>
+          <span>ADMIN PORTAL</span>
+        </footer>
+      </section>
+    </main>
+    <script type="module" src="../js/auth/login.js"></script>
+  </body>
+</html>
